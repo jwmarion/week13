@@ -1,9 +1,8 @@
+let gameState={dragon: 20, hero: 10}
 
-
-export default function reducer(state={dragon: 20, hero: 10}, action) {
+function reducer(state=gameState, action) {
   if (action.type === "flight") {
     var heroHealth = state.hero + 2;
-    console.log(state.hero);
     return Object.assign ({}, state, {
       hero: heroHealth
     })
@@ -22,3 +21,5 @@ export default function reducer(state={dragon: 20, hero: 10}, action) {
   }
   return state;
 }
+
+export default reducer;
