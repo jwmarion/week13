@@ -1,9 +1,13 @@
+import * as actions from './MovieWidget.actions';
+import * as ReactRedux from 'react-redux';
+import MovieWidget from './MovieWidget';
 
 export const MWContainer =
 ReactRedux.connect(
   state=>state,
   {
-
+    typeText: actions.typeText,
+    search: actions.search
   }
 )(MovieWidget)
 

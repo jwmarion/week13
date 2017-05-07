@@ -4,11 +4,9 @@ export default class MovieWidget extends React.Component{
   render(){
     return(
       <div>
-        <input type='text' onChange={()=>{}}/>
+        <input type='text' onChange={this.props.typeText} value={this.props.searchValue}/>
         <button>Submit</button>
       </div>
-    )
+    );
   }
 }
-//state.typeText(event.target.value)}
- 

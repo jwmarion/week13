@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import * as Redux from 'redux';
 import * as ReactRedux from 'react-redux';
-import movieWidget from './MovieWidget';
 import ReduxThunk from 'redux-thunk';
+import { Provider } from 'react-redux';
+import './index.css';
+import MovieWidget from './MovieWidget';
 import reducer from './MovieWidget.reducer.js';
-import actions from './MovieWidget.actions.js';
-// import container from './MovieWidget.container.js';
+// import * as actions from './MovieWidget.actions.js';
+import MWContainer from './MovieWidget.container.js';
 
 let store = Redux.createStore(
   reducer,
@@ -15,10 +16,9 @@ let store = Redux.createStore(
   Redux.applyMiddleware(ReduxThunk)
 );
 
-
 ReactDOM.render(
-  <movieWidget store={store}>
-    <container/>
-  </movieWidget>,
+  <Provider store={store}>
+    <MWContainer/>
+  </Provider>,
   document.getElementById('root')
 );

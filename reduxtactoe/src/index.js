@@ -12,7 +12,9 @@ const Initial_state = ({
   board: [null, null, null, null, null, null, null, null, null],
   player: 1,
   continue: true,
-  lastClicked: -1
+  lastClicked: -1,
+  msg: "Tic Tac Toe!",
+  score: [0,0]
 });
 
 let store = Redux.createStore(
@@ -26,14 +28,20 @@ ReactRedux.connect(
     board: state.board,
     player: state.player,
     continue: state.continue,
-    lastClick: state.lastClick
+    lastClicked: state.lastClick,
+    msg: state.msg,
+    scoreX: state.scoreX,
+    scoreO: state.scoreO
   }),
   dispatch => ({
-    click: () => dispatch({
-      type: 'playerChange'
+    click: (idx) => dispatch({
+      type: 'click',
+      value: idx
+    }),
+    reset: ()=> dispatch({
+      type: 'reset'
     })
   })
-
 )(TTT)
 
 function display() {
