@@ -7,7 +7,7 @@ ReactRedux.connect(
   state=>state,
   {
     typeText: actions.typeText,
-    search: actions.search
+    search: actions.search   
   }
 )(MovieWidget)
 
